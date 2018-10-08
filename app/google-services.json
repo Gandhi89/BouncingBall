@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "647062854867",
+    "firebase_url": "https://bouncingball-8e1f1.firebaseio.com",
+    "project_id": "bouncingball-8e1f1",
+    "storage_bucket": "bouncingball-8e1f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647062854867:android:be1dadc2b6d06523",
+        "android_client_info": {
+          "package_name": "com.example.shivamgandhi.bouncingball"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647062854867-jhhljm393rcnalr5at9a7qaj7h5e2hn8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjTjl3NKBkT4Uu0xzK63jfAeVMoKQvrWM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
