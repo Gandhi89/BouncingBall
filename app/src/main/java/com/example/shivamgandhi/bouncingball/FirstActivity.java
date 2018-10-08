@@ -1,14 +1,18 @@
 package com.example.shivamgandhi.bouncingball;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class FirstActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button createBtn,joinBtn;
+    Button createBtn,joinBtn,pNameBtn,pNameCancelBtn;
+    EditText pNameEdt;
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
     private void onClickEvents() {
         createBtn.setOnClickListener(this);
         joinBtn.setOnClickListener(this);
+
     }
 
     private void initializeAll() {
@@ -34,8 +39,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         {
             case R.id.firstActivity_createBtn:
 
-                Intent intent = new Intent(FirstActivity.this,WaitingActivity.class);
-                startActivity(intent);
+                showDialog();
 
                 break;
             case R.id.firstActivity_joinBtn:
@@ -44,6 +48,35 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(i);
 
                 break;
+            case R.id.save:
+
+                Intent i1 = new Intent(this,WaitingActivity.class);
+                startActivity(i1);
+
+                break;
+            case R.id.cancel:
+
+                dialog.cancel();
+
+                break;
         }
+    }
+
+    private void showDialog() {
+        dialog = new Dialog(this);
+
+        dialog.setContentView(R.layout.custom_dialog);
+        dialog.setTitle("Player Name");
+
+        pNameEdt = dialog.findViewById(R.id.editText);
+        pNameBtn = dialog.findViewById(R.id.save);
+        pNameCancelBtn = dialog.findViewById(R.id.cancel);
+
+        pNameBtn.setOnClickListener(this);
+        pNameCancelBtn.setOnClickListener(this);
+
+        dialog.show();
+
+
     }
 }

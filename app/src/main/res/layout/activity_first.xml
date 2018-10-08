@@ -12,8 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/button"
-        android:text="Create network" />
-
+        android:text="Join network" />
 
     <Button
         android:id="@+id/button"
@@ -28,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Join network"
+        android:text="Create network"
         android:layout_below="@+id/button"/>
 
 </RelativeLayout>
