@@ -1,4 +1,4 @@
-package com.example.shivamgandhi.bouncingball;
+package com.example.shivamgandhi.bouncingball.Activities;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -8,11 +8,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.shivamgandhi.bouncingball.R;
+import com.example.shivamgandhi.bouncingball.Utils.Vars;
+
 public class FirstActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button createBtn,joinBtn,pNameBtn,pNameCancelBtn;
     EditText pNameEdt;
     Dialog dialog;
+    Vars mVars;
+    GameDatabase mGameDatabse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,8 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
     private void initializeAll() {
         createBtn = findViewById(R.id.firstActivity_createBtn);
         joinBtn = findViewById(R.id.firstActivity_joinBtn);
+        mVars = Vars.getInstance();
+        mGameDatabse = new GameDatabase();
     }
 
     @Override
@@ -49,6 +56,9 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
 
                 break;
             case R.id.save:
+
+                mVars.setPlayerName(pNameEdt.getText().toString());
+                mGameDatabse.createNetwork(mVars.getPlayerName());
 
                 Intent i1 = new Intent(this,WaitingActivity.class);
                 startActivity(i1);
