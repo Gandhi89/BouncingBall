@@ -36,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
         // get the children count
         mDatabaseReference.child("Networks").child(mVars.getNetworkID()).child("players").addListenerForSingleValueEvent(new getChildValue());
 
-        new CountDownTimer(4000,1000)
+        new CountDownTimer(3000,1000)
         {
             @Override
             public void onTick(long l) {
@@ -48,14 +48,18 @@ public class HomeActivity extends AppCompatActivity {
                 Log.d("homeActivity/cnt","inside 1st cnt");
                 Log.d("homeActivity/mVars.ID",mVars.getID());
                 mDatabaseReference.child("Networks").child(mVars.getNetworkID()).child("id_no").addValueEventListener(new ListenForChange());
-                makeLoop();
+
+                if (mVars.getID().equals("1")) {
+                    makeLoop();
+                }
             }
         }.start();
-    }
+
+    }// end of onCreate()
 
     private void makeLoop() {
         Log.d("homeActivity/makeLoop","inside makeLoop");
-        new CountDownTimer(2000, 1000) {
+        new CountDownTimer(3000, 1000) {
 
             @Override
             public void onTick(long l) {

@@ -1,7 +1,9 @@
 package com.example.shivamgandhi.bouncingball.Activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -79,23 +81,22 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 });
 
-                new CountDownTimer(5000,1000) {
+                final ProgressDialog progress = new ProgressDialog(this);
+                progress.show();
+                progress.setCancelable(false);
+                new Handler().postDelayed(new Runnable() {
                     @Override
-                    public void onTick(long l) {
-
-                    }
-
-                    @Override
-                    public void onFinish() {
+                    public void run() {
+                        progress.dismiss();
                         Log.d("length",count+"");
                         mVars.setID((count+1)+"");
+                        // Join into network
                         mGameDatabase.joinNetwork(nIdEt.getText().toString(),mVars.getPlayerName(), String.valueOf(count+1));
+
                         Intent intent = new Intent(JoinActivity.this,WaitingActivity.class);
                         startActivity(intent);
                     }
-                }.start();
-
-
+                }, 5000);
                 break;
         }
     }

@@ -73,10 +73,12 @@ public class WaitingActivity extends AppCompatActivity implements View.OnClickLi
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             Log.d("Waiting",dataSnapshot.toString());
-            Player mPlayer = dataSnapshot.getValue(Player.class);
-
-            playersTv.append("\n");
-            playersTv.append("player:- "+mPlayer.name);
+            playersTv.setText("");
+            for(DataSnapshot postData:dataSnapshot.getChildren()){
+                Player mPlayer = postData.getValue(Player.class);
+                playersTv.append("\n");
+                playersTv.append("player:- "+mPlayer.name);
+            }
         }
 
         @Override
