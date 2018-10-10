@@ -60,6 +60,9 @@ public class WaitingActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.WaitingActivity_startBtn:
+
+                mDatabaseReference.child("Networks").child(mVars.getNetworkID()).child("id_no").setValue("1");
+
                 Intent intent = new Intent(WaitingActivity.this,HomeActivity.class);
                 startActivity(intent);
                 break;
@@ -72,7 +75,8 @@ public class WaitingActivity extends AppCompatActivity implements View.OnClickLi
             Log.d("Waiting",dataSnapshot.toString());
             Player mPlayer = dataSnapshot.getValue(Player.class);
 
-            playersTv.setText("player:- "+mPlayer.name);
+            playersTv.append("\n");
+            playersTv.append("player:- "+mPlayer.name);
         }
 
         @Override

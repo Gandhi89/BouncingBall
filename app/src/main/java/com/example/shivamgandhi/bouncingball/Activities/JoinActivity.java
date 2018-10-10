@@ -88,6 +88,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onFinish() {
                         Log.d("length",count+"");
+                        mVars.setID((count+1)+"");
                         mGameDatabase.joinNetwork(nIdEt.getText().toString(),mVars.getPlayerName(), String.valueOf(count+1));
                         Intent intent = new Intent(JoinActivity.this,WaitingActivity.class);
                         startActivity(intent);

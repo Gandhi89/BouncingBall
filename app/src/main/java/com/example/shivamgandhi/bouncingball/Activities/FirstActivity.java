@@ -59,7 +59,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
 
                 mVars.setPlayerName(pNameEdt.getText().toString());
                 mGameDatabse.createNetwork(mVars.getPlayerName());
-
+                mVars.setID("1");
                 Intent i1 = new Intent(this,WaitingActivity.class);
                 startActivity(i1);
 
@@ -86,7 +86,6 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         pNameCancelBtn.setOnClickListener(this);
 
         dialog.show();
-
 
     }
 }

@@ -11,6 +11,7 @@
         android:id="@+id/imageView"
         android:layout_width="58dp"
         android:layout_height="57dp"
+        android:visibility="invisible"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         app:srcCompat="@android:color/holo_green_light"

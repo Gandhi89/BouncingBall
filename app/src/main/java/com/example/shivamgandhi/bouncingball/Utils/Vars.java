@@ -13,6 +13,7 @@ public class Vars {
 
     private String networkID = "";
     private String playerName = "";
+    private String ID = "";
 
     // ----------------------------------------------- //
     public String getNetworkID() {
@@ -28,5 +29,13 @@ public class Vars {
 
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
 }
